@@ -1,0 +1,42 @@
+{
+    "version": 1,
+    "author": "Anonymous maker",
+    "editor": "wokwi",
+    "parts": [
+      { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": -319.61, "left": 14.02, "attrs": {} },
+      {
+        "type": "wokwi-resistor",
+        "id": "r1",
+        "top": -234.34,
+        "left": 131.15,
+        "rotate": 90,
+        "attrs": {}
+      },
+      {
+        "type": "wokwi-led",
+        "id": "led1",
+        "top": -310.28,
+        "left": 155.35,
+        "attrs": { "color": "red" }
+      },
+      {
+        "type": "wokwi-slide-switch",
+        "id": "sw1",
+        "top": -199.8,
+        "left": -80.5,
+        "rotate": 270,
+        "attrs": {}
+      }
+    ],
+    "connections": [
+      [ "esp:TX0", "$serialMonitor:RX", "", [] ],
+      [ "esp:RX0", "$serialMonitor:TX", "", [] ],
+      [ "led1:C", "esp:GND.1", "black", [ "v0" ] ],
+      [ "r1:1", "led1:A", "red", [ "h0" ] ],
+      [ "esp:D2", "r1:2", "red", [ "h0" ] ],
+      [ "sw1:2", "esp:D13", "green", [ "h0" ] ],
+      [ "sw1:1", "esp:GND.2", "black", [ "h0" ] ],
+      [ "sw1:3", "esp:VIN", "red", [ "h28.8", "v38.2" ] ]
+    ],
+    "dependencies": {}
+  }
